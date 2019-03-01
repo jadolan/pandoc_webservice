@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='login'>
+        <h3>Einloggen</h3>
+        <form action='' method='post' novalidate>
+            <!--CSRF-protection by Flask-WTF.
+                safe SECRET_KEY to be implemented-->
+            {{ form.hidden_tag() }}
+            <p id='username'>
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}
+            </p>
+            <p id='password'>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+            </p>
+            <p id='rememberMe'>
+                {{ form.remember_me() }}
+                {{ form.remember_me.label }}
+            </p>
+            <p id='submit'>
+                {{ form.submit() }}
+            </p>
+        </form>
+    </div>
+{% endblock %}

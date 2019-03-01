@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='description' content=''>
+        <meta name='author' content='Jana Dolan'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <header>
+            <div class='label'>
+                <h1 class='title'>Pandoc Webservice</h1>
+                <nav class='navigation'>
+                    <ul>
+                        <li>
+                            <a href='#'>Über</a>
+                        </li>
+                        <li>
+                            <a href='#'>Hilfe</a>
+                        </li>
+                        <li>
+                            <a href='#'>Abmelden</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class='content'>
+        {% block content %}
+        {% endblock %}
+        </main>
+        <footer>
+        </footer>
+    </body>
+</html>
