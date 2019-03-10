@@ -10,10 +10,10 @@ def index():
     form = UploadForm()
     # check if POST-request containing a file has been sent
     if form.validate_on_submit():
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(
+        filename = secure_filename(form.file.data.filename)
+        form.file.data.save(os.path.join(
             app.config['UPLOAD_FOLDER'], filename))
-    return render_template('index.html', title='Pandoc Webservice', form=form)
+    return render_template('index.html', form=form)
 
 
 
