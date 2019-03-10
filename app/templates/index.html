@@ -7,7 +7,16 @@
         <p>.md-Datei hochladen, mögliche weitere Konfiguration, ...</p>
     </div>
     <div id='conversion'>
-        ## Dies ist ein Platzhalter
+        <form action='' method='post' enctype='multipart/form-data'>
+        <!--CSRF-protection by Flask-WTF.
+                safe SECRET_KEY to be implemented-->
+            {{ form.hidden_tag() }}
+            <p id='upload'>
+                {{ form.file }}
+            </p>
+                <input type='submit'>
+            </p>
+        </form>
     </div>
 </div>
 {% endblock %}
