@@ -6,17 +6,22 @@
         <h3>Anleitung</h3>
         <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Vogel Quax zwickt Johnys Pferd Bim. Sylvia wagt quick den Jux bei Pforzheim. Polyfon zwitschernd aßen Mäxchens Vögel Rüben, Joghurt und Quark. "Fix, Schwyz!" quäkt Jürgen blöd vom Paß. Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Falsches Üben von Xylophonmusik quält jeden größeren Zwerg. Heizölrückstoßabdämpfung. Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.</p>
     </div>
+</div>
+{% endblock %}
+
+{% block upload %}
+<div class='container'>
     <div id='conversion'>
         <h3>PDF generieren</h3>
-        <form action='' method='post' enctype='multipart/form-data'>
+        <form action='/upload' method='post' enctype='multipart/form-data'>
         <!--CSRF-protection by Flask-WTF.
                 safe SECRET_KEY to be implemented-->
             {{ form.hidden_tag() }}
             <p id='upload'>
-                Datei hochladen: <br />
+                Datei hochladen: <br>
                 {{ form.file }}
             </p>
-                <input type='submit'>
+                <input type='file'>
             </p>
         </form>
     </div>
