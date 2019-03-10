@@ -11,4 +11,3 @@ class LoginForm(FlaskForm):
 
 class UploadForm(FlaskForm):
     file = FileField('Datei auswählen', validators=[FileRequired()])
-    submit_file = SubmitField('Konvertieren')
