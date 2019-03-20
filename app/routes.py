@@ -1,7 +1,7 @@
 from app import app
 from app.forms import LoginForm, UploadForm
 from app.convert import callPandoc
-from flask import flash, render_template, request
+from flask import flash, render_template, request, make_response
 from werkzeug.utils import secure_filename
 import os
 
@@ -21,9 +21,14 @@ def upload():
             app.config['UPLOAD_FOLDER'], filename)
         form.file.data.save(filepath)
         converted_file = callPandoc(filepath)
-        # TODO: check why message is not shown
-        flash("'Datei ', {}, 'erfolgreich hochgeladen!'".format(form.file.data.filename))
-    return render_template('upload.html', form=form)
+        try:
+            response = make_response(os.path.splitext(filepath)[0] + '.pdf')
+            response.headers['Content-Disposition'] = 'attachment; filename=' + os.path.splitext(filename)[0] + ".pdf"
+            response.headers['Cache-Control'] = 'must-revalidate'
+            response.headers['Content-type'] = 'application/pdf'
+        except Exception as e:
+            print(str(e))
+        return response
 
 
 @app.route('/login')
